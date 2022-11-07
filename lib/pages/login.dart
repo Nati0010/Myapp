@@ -19,10 +19,10 @@ class LoginPage extends StatelessWidget {
                 height: 16,
               ),
               const TextField(
-                obscureText: true,
+                obscureText: false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Correo electronico',
+                  labelText: 'Correo electrónico',
                 ),
               ),
               const SizedBox(
