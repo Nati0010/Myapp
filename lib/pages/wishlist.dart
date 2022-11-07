@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class WishList extends StatelessWidget {
   const WishList({super.key});
 
@@ -9,7 +11,7 @@ class WishList extends StatelessWidget {
       appBar: AppBar (
         title: const Text ("Lista de deseos")
         ),
-        
+      drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
