@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/wishlist.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -10,34 +11,34 @@ class DrawerWidget extends StatelessWidget {
     title: const Text('Drawer Demo'),
   ),
   drawer: Drawer(
-    child: ListView(
+    child: ListView( 
       padding: EdgeInsets.zero,
       children: <Widget>[
         DrawerHeader(
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 179, 139, 139)
+            color: Color.fromARGB(255, 121, 208, 183)
           ),
           child: _header(),
         ),
-        const  ListTile(
-          leading: Icon(Icons.home),
-          title: Text('Perfil'),
+        ListTile(
+          leading: const Icon(Icons.home),
+          title: const Text('Perfil'),
+          onTap: (){},
         ),
-        const ListTile(
-          leading: Icon(Icons.favorite),
-          title: Text('Lista de deseos'),
+        ListTile(
+          leading: const Icon(Icons.favorite),
+          title: const Text('Lista de deseos'),
+          onTap: (){
+            Navigator.pushReplacement(
+              context, 
+              MaterialPageRoute(builder: (context) => const WishList(),
+              ));
+          }
         ),
-        const  ListTile(
-          leading: Icon(Icons.star_rounded),
-          title: Text('Géneros favoritos'),
-        ),
-        const ListTile(
-          leading: Icon(Icons.shopping_basket),
-          title: Text('Productos'),
-        ),
-        const  ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Configuración'),
+        ListTile(
+          leading: const Icon(Icons.star_rounded),
+          title: const Text('Géneros favoritos'),
+          onTap: (){}
         ),
       ],
     ),
@@ -47,26 +48,31 @@ class DrawerWidget extends StatelessWidget {
 
   Widget _header(){
     //Consultar los datos de la cabecera
-    final image = Icon (Icons.manage_accounts);
-    final name = "Natalia Rojas";
-    final email = "nrl@gmail.com";
+    const  image = Icon (Icons.manage_accounts);
+    const name = "Natalia Rojas";
+    const  email = "nrl@gmail.com";
 
-    return Row ( children: [
-      CircleAvatar(child: image,
-      ),
-      const SizedBox(
-        width: 16,
-      ),
-      Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children:[
-        Text (name),
-        Text (email),
-      ],)
-    ],
+    return Row ( 
+      children: [
+        const CircleAvatar(
+          child: image,
+          radius: 40,
+        ),
+        const SizedBox(
+          width: 16,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children:const [
+            Text (name, style:  TextStyle(fontSize: 20,color: Colors.black)),
+            SizedBox(height: 8,),
+            Text (email, style:  TextStyle(fontSize: 16,color: Colors.black)),
+          ],  
+        )
+      ],
     );
   }
 }
 
-//hacer arribita la foto del cliente y su correo
+//pagina 
