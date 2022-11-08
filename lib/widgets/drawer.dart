@@ -12,36 +12,30 @@ class DrawerWidget extends StatelessWidget {
   drawer: Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
-      children: const <Widget>[
+      children: <Widget>[
         DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.white
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 179, 139, 139)
           ),
-          child: Text(
-            'Drawer Header',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
+          child: _header(),
         ),
-        ListTile(
+        const  ListTile(
           leading: Icon(Icons.home),
           title: Text('Perfil'),
         ),
-        ListTile(
+        const ListTile(
           leading: Icon(Icons.favorite),
           title: Text('Lista de deseos'),
         ),
-        ListTile(
+        const  ListTile(
           leading: Icon(Icons.star_rounded),
           title: Text('Géneros favoritos'),
         ),
-        ListTile(
+        const ListTile(
           leading: Icon(Icons.shopping_basket),
           title: Text('Productos'),
         ),
-        ListTile(
+        const  ListTile(
           leading: Icon(Icons.settings),
           title: Text('Configuración'),
         ),
@@ -49,6 +43,29 @@ class DrawerWidget extends StatelessWidget {
     ),
   ),
 );
+  }
+
+  Widget _header(){
+    //Consultar los datos de la cabecera
+    final image = Icon (Icons.manage_accounts);
+    final name = "Natalia Rojas";
+    final email = "nrl@gmail.com";
+
+    return Row ( children: [
+      CircleAvatar(child: image,
+      ),
+      const SizedBox(
+        width: 16,
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children:[
+        Text (name),
+        Text (email),
+      ],)
+    ],
+    );
   }
 }
 
