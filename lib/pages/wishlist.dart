@@ -1,46 +1,69 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/pages/shipping_information.dart';
+
+import '../widgets/drawer.dart';
 
 class WishList extends StatelessWidget {
+
+  
   const WishList({super.key});
+
 
   @override
   Widget build(BuildContext context) {
+
+    final lista= _listadeDeseos();
     return Scaffold(
       appBar: AppBar (
         title: const Text ("Lista de deseos")
         ),
-        
+      drawer: const DrawerWidget(),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text ("Mis libros"),
+            const Text ("Mis libros", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
             Expanded(
-              child: ListView(
-                children:  [
-                  ListTile(
+              child: ListView.builder(
+              itemCount: lista.length,
+              itemBuilder:  (context, index) => ListTile(
                   leading: const CircleAvatar (),
-                  title: const Text ("El sicoanalista"),
-                  subtitle: const Text ("puntuacion.."),
+                  title: Text (lista [index]),
+                  subtitle: const Text ("genero"),
+                  trailing: Column (
+                    children: const [
+                      Icon(Icons.star_rounded),
+                      Text ("4.3"),
+                    ],
+                  ),
                   onTap: (){},
                   ),
-                  ListTile(
-                  leading: const CircleAvatar (),
-                  title: const Text ("La chica del tren"),
-                  subtitle: const Text ("puntuacion.."),
-                  onTap: (){},
-                  )
-              ],
-              ))
+              ),
+              ),
           ],
         ),
       ),
       floatingActionButton:  FloatingActionButton (
-        onPressed: (){},
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute
+          (builder: (context)=> const ShippingInformation(),
+            ),
+          );
+        },
         child: const Icon (Icons.shopping_cart_checkout),
       ),
     );
   }
+
+  List <String> _listadeDeseos(){
+    //TODO: traer la lista de deseos que el cliente ya tiene de la BD
+    return List<String>.generate (
+      10,
+      (index)=> "Libro ${index+1}",
+    );
+  }
 }
 
-//hacer el row despues del title del libro para que se pueda ver la puntuacion, que tan lejos esta y el genero del libro 
+//hacer el row despues del title del libro para que se pueda ver la puntuacion, que tan lejos esta el libro, el genero de este  y que no se compre toda la 
+//lista sino solamente el que yo señale 

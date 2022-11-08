@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import '/pages/wishlist.dart';
 
-import 'pages/wishlist.dart';
+
 
 void main() {
   runApp(const MaterialApp(
