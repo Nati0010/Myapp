@@ -23,13 +23,13 @@ class WishList extends StatelessWidget {
                   ListTile(
                   leading: const CircleAvatar (),
                   title: const Text ("El sicoanalista"),
-                  subtitle: const Text ("puntuacion.."),
+                  subtitle: const Text ("género"),
                   onTap: (){},
                   ),
                   ListTile(
                   leading: const CircleAvatar (),
                   title: const Text ("La chica del tren"),
-                  subtitle: const Text ("puntuacion.."),
+                  subtitle: const Text ("género"),
                   onTap: (){},
                   )
               ],
@@ -45,4 +45,4 @@ class WishList extends StatelessWidget {
   }
 }
 
-//hacer el row despues del title del libro para que se pueda ver la puntuacion, que tan lejos esta y el genero del libro 
+//hacer el row despues del title del libro para que se pueda ver la puntuacion, que tan lejos esta el libro y el genero de este  

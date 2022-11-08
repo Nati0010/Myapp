@@ -14,7 +14,10 @@ class ShippingInformation extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column (children:  [
-             const Text ("Nueva compra"),
+             const Text ("Especificaciones del producto"),
+             const SizedBox(
+              height:80,
+              ),
              const TextField(
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
@@ -39,6 +42,9 @@ class ShippingInformation extends StatelessWidget {
                 labelText: 'Ciudad',
                 ),
                 ),
+              const SizedBox(
+              height: 10,
+              ),
               const TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(),

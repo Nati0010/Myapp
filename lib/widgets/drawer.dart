@@ -15,7 +15,7 @@ class DrawerWidget extends StatelessWidget {
       children: const <Widget>[
         DrawerHeader(
           decoration: BoxDecoration(
-            color: Color.fromARGB(255, 61, 240, 204),
+            color: Colors.white
           ),
           child: Text(
             'Drawer Header',
@@ -26,7 +26,7 @@ class DrawerWidget extends StatelessWidget {
           ),
         ),
         ListTile(
-          leading: Icon(Icons.account_circle),
+          leading: Icon(Icons.home),
           title: Text('Perfil'),
         ),
         ListTile(
@@ -38,6 +38,10 @@ class DrawerWidget extends StatelessWidget {
           title: Text('Géneros favoritos'),
         ),
         ListTile(
+          leading: Icon(Icons.shopping_basket),
+          title: Text('Productos'),
+        ),
+        ListTile(
           leading: Icon(Icons.settings),
           title: Text('Configuración'),
         ),
@@ -47,3 +51,5 @@ class DrawerWidget extends StatelessWidget {
 );
   }
 }
+
+//hacer arribita la foto del cliente y su correo
