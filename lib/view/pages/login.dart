@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/view/pages/createaccount.dart';
 import '/view/pages/mainpage.dart';
 
 class LoginPage extends StatelessWidget {
@@ -16,10 +17,7 @@ class LoginPage extends StatelessWidget {
               _logo(),
               _formulario(context),
               _inicioalternativo(),
-              TextButton(
-                onPressed: (){}, 
-                child: const Text("Si aún no tienes usuario registrate ahora")
-                ),
+              _crearCuenta(context),
             ],
           ),
         ),
@@ -139,6 +137,24 @@ class LoginPage extends StatelessWidget {
               ), 
     ],
     );
-
   }
+
+  Widget _crearCuenta (BuildContext context){
+    final formKey= GlobalKey<FormState>();
+    return Column(
+      key: formKey,
+      children: [
+        TextButton(
+          onPressed: (){
+            Navigator.push(context, 
+            MaterialPageRoute(builder: (context)=> const CreateAccount(),
+              ),
+            );
+          }, 
+          child: const Text("Si aún no tienes usuario registrate ahora"),
+          ),
+      ],
+    );
+  }
+
 }

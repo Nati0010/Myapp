@@ -41,12 +41,11 @@ class ShippingInformation extends StatelessWidget {
         children: [
           _campoCliente(),
           const SizedBox(height: 10,),
- 
-         
           _campoDireccion(),
           const SizedBox(height: 10,),
           _campoTelefono(),
           const SizedBox(height: 10,),
+          _campometodopago(),
           ElevatedButton(
             child: const Text("Guardar"),
             onPressed: (){
@@ -112,6 +111,25 @@ class ShippingInformation extends StatelessWidget {
       keyboardType: TextInputType.number,
       decoration: const InputDecoration(
         icon:Icon(Icons.phone),
+        border: OutlineInputBorder(),
+        labelText: 'Telefono',
+      ),
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return "Por favor llene el campo telefono";
+        }
+        return null;
+      },
+    )
+    );
+  }
+
+  Widget _campometodopago (){
+    return (TextFormField(
+      maxLength: 30,
+      keyboardType: TextInputType.number,
+      decoration: const InputDecoration(
+        icon:Icon(Icons.credit_card),
         border: OutlineInputBorder(),
         labelText: 'Telefono',
       ),
