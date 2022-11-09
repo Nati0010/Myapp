@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'pages/shipping_information.dart';
+import 'app.dart';
 
 
 
 void main() {
-  runApp(const MaterialApp(
-
-    title: "Wanderbooks",
-    home: ShippingInformation(),
-  ));
+  runApp(const MyApp());
 }
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/shipping_information.dart';
+import '/view/pages/shipping_information.dart';
 
 import '../widgets/drawer.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/wishlist.dart';
+import 'package:myapp/view/pages/wishlist.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});

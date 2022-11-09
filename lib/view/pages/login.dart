@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/pages/mainpage.dart';
+import '/view/pages/mainpage.dart';
 
 class LoginPage extends StatelessWidget {
   final _imageUrl ="assets/images/logoapp.png";

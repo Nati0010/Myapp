@@ -22,7 +22,7 @@ class ShippingInformation extends StatelessWidget {
              ),
              ),
              const SizedBox(height:30,),
-             _formulario(),
+             _formulario(context),
                 
           ],
           ),
@@ -32,7 +32,7 @@ class ShippingInformation extends StatelessWidget {
   }
 
 
-  Widget _formulario (){
+  Widget _formulario (BuildContext context){
     final formKey = GlobalKey<FormState>();
 
     return Form(
@@ -41,19 +41,24 @@ class ShippingInformation extends StatelessWidget {
         children: [
           _campoCliente(),
           const SizedBox(height: 10,),
-              const SizedBox(
-              height: 10,
-              ),
-             
-              const SizedBox(height: 10,),
-              _campoDireccion(),
-              const SizedBox(height: 10,),
-              _campoTelefono(),
-              const SizedBox(height: 10,),
-              ElevatedButton(
-                child: const Text("Guardar"),
-                onPressed: (){}, 
-                ),
+ 
+         
+          _campoDireccion(),
+          const SizedBox(height: 10,),
+          _campoTelefono(),
+          const SizedBox(height: 10,),
+          ElevatedButton(
+            child: const Text("Guardar"),
+            onPressed: (){
+              if (formKey.currentState!.validate()){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text("Información guardada con éxito"))
+                );
+
+                
+              }
+            }, 
+            ),
 
       ],
       )
@@ -106,7 +111,7 @@ class ShippingInformation extends StatelessWidget {
       maxLength: 30,
       keyboardType: TextInputType.number,
       decoration: const InputDecoration(
-        icon:Icon(Icons.map_sharp),
+        icon:Icon(Icons.phone),
         border: OutlineInputBorder(),
         labelText: 'Telefono',
       ),
@@ -120,15 +125,14 @@ class ShippingInformation extends StatelessWidget {
     );
   }
 
-  Widget _campoCiudad (){
-    return (const TextField(
-      decoration: InputDecoration(
-        border: OutlineInputBorder(),
-        labelText: 'Ciudad',
-        ),
-        ),
-      
-    ); 
-  }
+  
+
+
+
+  //campo ciudad desplegable lanza error preguntar por eso
+
+
 
 }
+
+
