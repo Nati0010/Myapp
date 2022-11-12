@@ -56,9 +56,8 @@ class CreateAccount extends StatelessWidget {
               if (formKey.currentState!.validate()){
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text("Información guardada con éxito"))
-                );
-
                 
+                ); 
               }
             }, 
             ),
@@ -89,26 +88,6 @@ class CreateAccount extends StatelessWidget {
     );
   }
 
-  
-  Widget _campoPreferencias (){
-    return (TextFormField(
-      maxLength: 60,
-      keyboardType: TextInputType.streetAddress,
-      decoration: const InputDecoration(
-        icon:Icon(Icons.map_sharp),
-        border: OutlineInputBorder(),
-        labelText: 'Preferencias',
-      ),
-      validator: (value){
-        if (value == null || value.isEmpty){
-          return "Por favor llene el campo dirección";
-        }
-        return null;
-      },
-    )
-    );
-  }
-
   Widget _campoCorreo (){
     return (TextFormField(
       maxLength: 30,
@@ -130,15 +109,34 @@ class CreateAccount extends StatelessWidget {
     )
     );
   }
+  
+  Widget _campoPreferencias (){
+    return (TextFormField(
+      
+      decoration: const InputDecoration(
+        icon:Icon(Icons.star_rounded),
+        border: OutlineInputBorder(),
+      ),
+      validator: (value){
+        if (value == null || value.isEmpty){
+          return "Por favor llene el campo dirección";
+        }
+        return null;
+      },
+    )
+    );
+  }
+
+
 
   Widget _campoClave (){
     return (TextFormField(
       maxLength: 30,
       keyboardType: TextInputType.number,
       decoration: const InputDecoration(
-        icon:Icon(Icons.credit_card),
+        icon:Icon(Icons.password_rounded),
         border: OutlineInputBorder(),
-        labelText: 'Telefono',
+        labelText: 'Clave',
       ),
       validator: (value){
         if (value ==null || value.isEmpty){
@@ -152,9 +150,6 @@ class CreateAccount extends StatelessWidget {
     )
     );
   }
-
-  
-
 
 
   //campo ciudad desplegable lanza error preguntar por eso

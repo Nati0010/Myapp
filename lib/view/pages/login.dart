@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/view/pages/createaccount.dart';
-import '/view/pages/mainpage.dart';
+import '../../controller/login.dart';
+import '../../controller/request/login.dart';
+import '/view/pages/createaccount.dart';
+import 'mainpage.dart';
 
 class LoginPage extends StatelessWidget {
   final _imageUrl ="assets/images/logoapp.png";
-  const LoginPage({super.key});
+  late LoginRequest _request;
+  late LoginController _controller;
+  
+  
+  LoginPage({super.key}){
+    _controller = LoginController();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,12 +60,24 @@ class LoginPage extends StatelessWidget {
           ElevatedButton(
             onPressed: (){
               if (formKey.currentState!.validate()){
-                //TODO: validar usuario y contra en BD
-                //si currentState es null va a devolver un false 
-                Navigator.push(context, 
-                MaterialPageRoute(builder: (context)=> const MainPage(),
-                ),
+                formKey.currentState!.save();
+              //aqui ya estoy asegurando que el valor no es nulo
+              //TODO: validar usuario y contra en BD
+                try {
+                  _controller.validateEmailPassword(_request);
+                  //si currentState es null va a devolver un false 
+                  Navigator.push(
+                    context, 
+                    MaterialPageRoute(
+                      builder: (context)=> const MainPage(),
+                  ),
                 );
+              } catch (e){
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text(e.toString()))
+                );
+              }
+              }
               }
             }, 
             child: const Text(
@@ -89,6 +109,10 @@ class LoginPage extends StatelessWidget {
         }
         return null;
       },
+      //currentState! aseguramos que no es nuli
+      onSaved: (value){
+        _request.email=value!;
+      }
     );
   }
 
@@ -109,6 +133,9 @@ class LoginPage extends StatelessWidget {
         }
         return null;
       },
+      onSaved: (value){
+        _request.password=value!;
+      }
     );
   }
 
