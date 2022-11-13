@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "841392861617",
+    "project_id": "wonder-books-app",
+    "storage_bucket": "wonder-books-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:841392861617:android:233ef332dd8c41a9130d90",
+        "android_client_info": {
+          "package_name": "com.example.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "841392861617-oe76dvhsvnqkv4e2ujf8hm0mpisg1947.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH6NWCJx7ILMwxVQAh3tblIsxQHxznVII"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "841392861617-oe76dvhsvnqkv4e2ujf8hm0mpisg1947.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "841392861617-fehb81djsc59k51kadlh0fo9egjoublv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.myapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -19,7 +19,7 @@ class DrawerWidget extends StatelessWidget {
       children: <Widget>[
         DrawerHeader(
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 121, 208, 183)
+            color: Color.fromARGB(255, 232, 224, 164)
           ),
           child: _header(),
         ),
