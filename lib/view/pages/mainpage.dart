@@ -2,13 +2,21 @@
 
 import 'package:flutter/material.dart';
 
+import '../widgets/drawer.dart';
+
 class MainPage extends StatelessWidget {
-  const MainPage({super.key});
+  final String email;
+  final String name;
+  const MainPage({super.key, required this.name, required this.email});
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text ("Según mis gustos"),
+      ),
+      drawer:  DrawerWidget(email: email,name:name),
     );
   }
 }
+

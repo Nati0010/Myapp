@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/view/pages/mainpage.dart';
 import 'package:myapp/view/pages/wishlist.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  final String name;
+  final String email;
+  const DrawerWidget({super.key, required this.name, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +34,10 @@ class DrawerWidget extends StatelessWidget {
           onTap: (){
             Navigator.pushReplacement(
               context, 
-              MaterialPageRoute(builder: (context) => const WishList(),
+              MaterialPageRoute(builder: (context) => MainPage(
+                email:email,
+                name:name,
+              ),
               ));
           }
         ),
@@ -49,8 +55,7 @@ class DrawerWidget extends StatelessWidget {
   Widget _header(){
     //Consultar los datos de la cabecera
     const  image = Icon (Icons.manage_accounts);
-    const name = "Natalia Rojas";
-    const  email = "nrl@gmail.com";
+    
 
     return Row ( 
       children: [
@@ -61,14 +66,24 @@ class DrawerWidget extends StatelessWidget {
         const SizedBox(
           width: 16,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children:const [
-            Text (name, style:  TextStyle(fontSize: 20,color: Colors.black)),
-            SizedBox(height: 8,),
-            Text (email, style:  TextStyle(fontSize: 16,color: Colors.black)),
-          ],  
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text (
+                name, 
+                style: const TextStyle
+                (fontSize: 20,
+                color: Colors.black)),
+                const SizedBox (height: 8,),
+              Text (
+                email, 
+                style:  const TextStyle
+                (fontSize: 16,
+                color: Colors.black)),
+            ],  
+          ),
         )
       ],
     );

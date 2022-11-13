@@ -12,6 +12,7 @@ class LoginPage extends StatelessWidget {
   
   LoginPage({super.key}){
     _controller = LoginController();
+    _request = LoginRequest();
   }
 
   @override
@@ -58,35 +59,36 @@ class LoginPage extends StatelessWidget {
           _campoClave(),
           const SizedBox(height: 12,),
           ElevatedButton(
+              child: const Text(
+              "Iniciar sesión", 
+              style: TextStyle(fontSize: 20),),
             onPressed: (){
               if (formKey.currentState!.validate()){
                 formKey.currentState!.save();
               //aqui ya estoy asegurando que el valor no es nulo
               //TODO: validar usuario y contra en BD
                 try {
-                  _controller.validateEmailPassword(_request);
+                  var name = _controller.validateEmailPassword(_request);
                   //si currentState es null va a devolver un false 
                   Navigator.push(
                     context, 
                     MaterialPageRoute(
-                      builder: (context)=> const MainPage(),
-                  ),
+                      builder: (context)=> 
+                      MainPage(email:_request.email, name:name)),
                 );
               } catch (e){
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text(e.toString()))
+                  SnackBar(
+                    content: Text(e.toString()),
+                  ),
                 );
               }
               }
-              }
-            }, 
-            child: const Text(
-              "Iniciar sesión", 
-              style: TextStyle(fontSize: 20),)
-              ),
+              },
+          ),
          const SizedBox(
             height: 12,
-                ),
+                )
         ],
       ),
     );

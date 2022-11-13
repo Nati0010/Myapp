@@ -17,7 +17,7 @@ class WishList extends StatelessWidget {
       appBar: AppBar (
         title: const Text ("Lista de deseos")
         ),
-      drawer: const DrawerWidget(),
+      drawer: const DrawerWidget(email:"",name:""),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(
